@@ -97,7 +97,7 @@
                         <div class="scroll">
                             <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                                 <a href="#">
-                                    <img src="img/profiles/l-2.jpg" alt="Notification Image"
+                                    <img src="{{asset('img/profiles/l-2.jpg')}}" alt="Notification Image"
                                         class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                                 </a>
                                 <div class="pl-3">
@@ -109,7 +109,7 @@
                             </div>
                             <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                                 <a href="#">
-                                    <img src="img/notifications/1.jpg" alt="Notification Image"
+                                    <img src="{{asset('img/notifications/1.jpg')}}" alt="Notification Image"
                                         class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                                 </a>
                                 <div class="pl-3">
@@ -121,7 +121,7 @@
                             </div>
                             <div class="d-flex flex-row mb-3 pb-3 border-bottom">
                                 <a href="#">
-                                    <img src="img/notifications/2.jpg" alt="Notification Image"
+                                    <img src="{{asset('img/notifications/2.jpg')}}" alt="Notification Image"
                                         class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                                 </a>
                                 <div class="pl-3">
@@ -133,7 +133,7 @@
                             </div>
                             <div class="d-flex flex-row mb-3 pb-3 ">
                                 <a href="#">
-                                    <img src="img/notifications/3.jpg" alt="Notification Image"
+                                    <img src="{{asset('img/notifications/3.jpg')}}" alt="Notification Image"
                                         class="img-thumbnail list-thumbnail xsmall border-0 rounded-circle" />
                                 </a>
                                 <div class="pl-3">
@@ -162,7 +162,7 @@
                     <span class="name">{{ app.user.username }}</span>
                     {% endif %}
                     <span>
-                        <img alt="Profile Picture" src="img/profiles/l-1.jpg" />
+                        <img alt="Profile Picture" src="{{asset('img/profiles/l-1.jpg')}}" />
                     </span>
                 </button>
 
@@ -203,12 +203,12 @@
                     </li>
                     <li>
                         <a href="#menu">
-                            <i class="iconsminds-three-arrow-fork"></i> Menu
+                            <i class="iconsminds-three-arrow-fork"></i> Stock
                         </a>
                     </li>
                     <li>
                         <a href="Blank.Page.html">
-                            <i class="iconsminds-bucket"></i> Blank Page
+                            <i class="iconsminds-bucket"></i> Facture
                         </a>
                     </li>
                     <li>
@@ -220,29 +220,22 @@
             </div>
         </div>
 
+
+
         <div class="sub-menu">
             <div class="scroll">
                 <ul class="list-unstyled" data-link="dashboard">
                     <li class="active">
-                        <a href="Dashboard.Default.html">
-                            <i class="simple-icon-rocket"></i> <span class="d-inline-block">Default</span>
+                        <a href="{{path('user_list')}}">
+                            <i class="simple-icon-rocket"></i> <span class="d-inline-block">List des utilisateur</span>
                         </a>
                     </li>
                     <li>
-                        <a href="Dashboard.Analytics.html">
-                            <i class="simple-icon-pie-chart"></i> <span class="d-inline-block">Analytics</span>
+                        <a href="{{path('app_register')}}">
+                            <i class="simple-icon-pie-chart"></i> <span class="d-inline-block">Ajouter Utilisateur</span>
                         </a>
                     </li>
-                    <li>
-                        <a href="Dashboard.Ecommerce.html">
-                            <i class="simple-icon-basket-loaded"></i> <span class="d-inline-block">Ecommerce</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="Dashboard.Content.html">
-                            <i class="simple-icon-doc"></i> <span class="d-inline-block">Content</span>
-                        </a>
-                    </li>
+  
                 </ul>
                 <ul class="list-unstyled" data-link="layouts" id="layouts">
                     <li>
@@ -463,6 +456,8 @@
                     </li>
 
                 </ul>
+
+
 
                 <ul class="list-unstyled" data-link="menu" id="menuTypes">
                     <li>

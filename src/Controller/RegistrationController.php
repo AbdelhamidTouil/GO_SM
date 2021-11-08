@@ -14,10 +14,14 @@ class RegistrationController extends AbstractController
 {
     /**
      * @Route("/register", name="app_register")
+     * @Route("/register/{id}/edit", name="app_register_edit")
      */
-    public function register(Request $request, UserPasswordEncoderInterface $userPasswordEncoderInterface): Response
+    public function register( User $user = null,Request $request, UserPasswordEncoderInterface $userPasswordEncoderInterface): Response
     {
-        $user = new User();
+        if(!$user){
+            $user = new User();
+        }
+        
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
 
@@ -40,6 +44,7 @@ class RegistrationController extends AbstractController
 
         return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
+            'editMode' => $user->getId() !== null
         ]);
     }
 }

@@ -43,6 +43,8 @@ class RegistrationFormType extends AbstractType
                     ]),
                 ],
             ])
+            ->add('cin')
+            ->add('tel')
         ;
     }
 
