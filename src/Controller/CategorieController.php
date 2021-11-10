@@ -29,8 +29,8 @@ class CategorieController extends AbstractController
 
      /**
       * create and update categories
-     * @Route("categorie/create", name="categorie_create")
-     * @Route("/categorie/{id}/edit", name="categorie_edit")
+     * @Route("categoriecreate", name="categorie_create")
+     * @Route("/categorie{id}edit", name="categorie_edit")
      */
     public function form( Categorie $categorie = null, Request $request, EntityManagerInterface $entityManager)
     {
@@ -54,7 +54,7 @@ class CategorieController extends AbstractController
 
     /**
       * delete categories
-     * @Route("/delete/categorie/{id}", name="categorie_delete")
+     * @Route("/deletecategorie{id}", name="categorie_delete")
      */
     public function delete_categorie( categorie $categorie)
     {
@@ -68,7 +68,7 @@ class CategorieController extends AbstractController
 
     /**
       * showing categorie
-     * @Route("/categorie/{id}", name="categorie_show")
+     * @Route("/categorie{id}", name="categorie_show")
      */
     public function show_categorie(CategorieRepository $repo,$id): Response
     {

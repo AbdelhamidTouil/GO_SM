@@ -14,7 +14,7 @@ class RegistrationController extends AbstractController
 {
     /**
      * @Route("/register", name="app_register")
-     * @Route("/register/{id}/edit", name="app_register_edit")
+     * @Route("/register/{id}/edit", name="user_edit")
      */
     public function register( User $user = null,Request $request, UserPasswordEncoderInterface $userPasswordEncoderInterface): Response
     {
@@ -26,6 +26,19 @@ class RegistrationController extends AbstractController
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $file = $user->getImage();
+            $fileName = md5(uniqid()).'.'.$file->guessExtension();
+            try {
+                $file->move(
+                    $this->getParameter('images_directory'),
+                    $fileName
+                );
+            } catch (FileException $e) {
+                // ... handle exception if something happens during file upload
+            }
+            $entityManager =$this->getDoctrine()->getManager();
+            $user->setImage($fileName);
+           
             // encode the plain password
             $user->setPassword(
             $userPasswordEncoderInterface->encodePassword(

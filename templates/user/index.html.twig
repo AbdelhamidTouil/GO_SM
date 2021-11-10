@@ -132,7 +132,10 @@
                             <div
                                 class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
                                 <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
-                                    {{user.email}}
+                                    {{user.nom}}
+                                </a>
+                                  <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
+                                    
                                 </a>
                                   <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
                                     {{user.cin}}
@@ -140,10 +143,13 @@
                                   <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
                                     {{user.tel}}
                                 </a>
-                               
+                                 <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
+                                    <img alt="profile" style="width:50px" src="uploads\brochures\{{user.image}}"> 
+                                </a>
 
 
                                 <div class="w-15 w-xs-100">
+                                
                                     <a href="{{url('user_show',{id:user.id})}}">
                                     <span class="badge badge-pill badge-secondary">Show</span>
                                     </a>

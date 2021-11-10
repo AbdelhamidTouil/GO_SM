@@ -28,8 +28,8 @@ class ProduitController extends AbstractController
 
      /**
       * create and update product
-     * @Route("produit/create", name="produit_create")
-     * @Route("/produit/{id}/edit", name="produit_edit")
+     * @Route("produitcreate", name="produit_create")
+     * @Route("/produit{id}/edit", name="produit_edit")
      */
     public function form( Produit $produit = null, Request $request, EntityManagerInterface $entityManager)
     {
@@ -53,7 +53,7 @@ class ProduitController extends AbstractController
 
     /**
       * delete product
-     * @Route("/delete/produit/{id}", name="produit_delete")
+     * @Route("/deleteproduit{id}", name="produit_delete")
      */
     public function delete_produit( produit $produit)
     {
@@ -67,7 +67,7 @@ class ProduitController extends AbstractController
 
     /**
        * show product
-     * @Route("/produit/{id}", name="produit_show")
+     * @Route("/produit{id}", name="produit_show")
      */
     public function show_produit(ProduitRepository $repo,$id): Response
     {

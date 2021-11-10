@@ -28,12 +28,10 @@
                 </span>
             </div>
 
-            <a class="btn btn-sm btn-outline-primary ml-3 d-none d-md-inline-block"
-                href="https://1.envato.market/5kAb">&nbsp;BUY&nbsp;</a>
         </div>
 
 
-        <a class="navbar-logo" href="Dashboard.Default.html">
+        <a class="navbar-logo" href="">
             <span class="logo d-none d-xs-block"></span>
             <span class="logo-mobile d-block d-xs-none"></span>
         </a>
@@ -54,35 +52,22 @@
                         <i class="simple-icon-grid"></i>
                     </button>
                     <div class="dropdown-menu dropdown-menu-right mt-3  position-absolute" id="iconMenuDropdown">
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-equalizer d-block"></i>
-                            <span>Settings</span>
-                        </a>
+                     
 
                         <a href="#" class="icon-menu-item">
                             <i class="iconsminds-male-female d-block"></i>
                             <span>Users</span>
                         </a>
 
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-puzzle d-block"></i>
-                            <span>Components</span>
-                        </a>
+                        
 
                         <a href="#" class="icon-menu-item">
                             <i class="iconsminds-bar-chart-4 d-block"></i>
                             <span>Profits</span>
                         </a>
 
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-file d-block"></i>
-                            <span>Surveys</span>
-                        </a>
+                        
 
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-suitcase d-block"></i>
-                            <span>Tasks</span>
-                        </a>
 
                     </div>
                 </div>
@@ -159,7 +144,7 @@
                 <button class="btn btn-empty p-0" type="button" data-toggle="dropdown" aria-haspopup="true"
                     aria-expanded="false">
                     {% if app.user %}
-                    <span class="name">{{ app.user.username }}</span>
+                    <span class="name">{{ app.user.nom }}</span>
                     {% endif %}
                     <span>
                         <img alt="Profile Picture" src="{{asset('img/profiles/l-1.jpg')}}" />
@@ -167,11 +152,9 @@
                 </button>
 
                 <div class="dropdown-menu dropdown-menu-right mt-3">
-                    <a class="dropdown-item" href="#">Account</a>
-                    <a class="dropdown-item" href="#">Features</a>
-                    <a class="dropdown-item" href="#">History</a>
-                    <a class="dropdown-item" href="#">Support</a>
-                    <a class="dropdown-item" href="{{ path('app_logout') }}">Sign out</a>
+                    <a class="dropdown-item" href="#">Profile</a>
+                    <a class="dropdown-item" href="#">Histoire</a>
+                    <a class="dropdown-item" href="{{ path('app_logout') }}">Se déconnecter</a>
                 </div>
             </div>
         </div>

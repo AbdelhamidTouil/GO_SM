@@ -24,30 +24,7 @@ class UserController extends AbstractController
             'user' =>$user
         ]);
     }
-       /**
-      * create and update product
-     * @Route("user/create", name="user_create")
-     * @Route("/user/{id}/edit", name="user_edit")
-     */
-    public function form( User $user = null, Request $request, EntityManagerInterface $entityManager)
-    {
-        if(!$user){
-            $user = new user;
-        }
-        
-        $form = $this->createForm(UserType::class, $user);
-        $form->handleRequest($request);
-        if($form->isSubmitted() && $form->isValid()) {
-
-      $entityManager->persist($user);
-      $entityManager->flush();  
-
-    }
-        return $this->render('user/create.html.twig', [
-            'formUser' => $form->createView(),
-            'editMode' => $user->getId() !== null
-        ]);
-    }
+  
 
     /**
       * delete product
@@ -60,12 +37,12 @@ class UserController extends AbstractController
         $entityManager->remove($user);
         $entityManager->flush();
 
-        return $this->redirectToRoute('list_user');
+        return $this->redirectToRoute('user_list');
     }
 
     /**
        * show user
-     * @Route("/user/{id}", name="user_show")
+     * @Route("/user{id}", name="user_show")
      */
     public function show_user(UserRepository $repo,$id): Response
     {
