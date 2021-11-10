@@ -3,7 +3,10 @@
 namespace App\Form;
 
 use App\Entity\User;
+use App\Entity\Departement;
+use App\Form\DepartementType;
 use Symfony\Component\Form\AbstractType;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -47,7 +50,11 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('cin')
             ->add('tel')
-            ->add('image',FileType::class,array('data_class'=> null, 'label' => 'Image'))
+            ->add('departement', EntityType::class,[
+                'class' => Departement::class,
+                'choice_label' => 'title'
+            ])
+            ->add('image',FileType::class,array('data_class'=> null, 'label' => 'Image' ))
             
             
         ;

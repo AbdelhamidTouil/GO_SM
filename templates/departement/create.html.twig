@@ -10,11 +10,9 @@
 
 
 
-
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit!
+{% block title %}depatement!
 {% endblock %}
 
 {% block body %}
@@ -22,22 +20,20 @@
 		{% include "includes/body_dash.html.twig" %}
 		<main>
      
-			<h1>ajouter Categorie</h1>
+			<h1> ajouter Depatement</h1>
 
-			{{ form_start(formCategorie) }}
+			{{ form_start(formDepartement) }}
             
+			
 				<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.title)}}
+					{{ form_row(formDepartement.title) }}
 				</label>
-                	<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.description)}}
-				</label>
-
+			
 				<div class="d-flex justify-content-start align-items-center">
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
 				</div>
 			
-			{{ form_end(formCategorie) }}
+			{{ form_end(formDepartement) }}
          
 		</main>
 		{% include "includes/footer.html.twig" %}

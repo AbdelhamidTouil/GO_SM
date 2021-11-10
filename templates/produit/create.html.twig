@@ -1,17 +1,48 @@
+
+
+
+
 {% extends 'base.html.twig' %}
 
-{% block title %} Produit!{% endblock %}
+{% block title %}Produit!
+{% endblock %}
 
 {% block body %}
+	<body id="app-container" class="menu-default show-spinner">
+		{% include "includes/body_dash.html.twig" %}
+		<main>
+     
+			<h1>ajouter Produit</h1>
 
-<div class="example-wrapper">
-    <h1>formProduit ✅</h1>
-{{form_start(formProduit)}}
-{{form_row(formProduit.title)}}
-{{form_row(formProduit.description)}}
-{{form_row(formProduit.quantity)}}
-
-{{form_end(formProduit)}}
-
-</div>
+			{{ form_start(formProduit) }}
+            
+			
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.title)}}
+				</label>
+				
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.description)}}
+				</label>
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.quantity)}}
+				</label>
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.image)}}
+				</label>
+				<label class="form-group has-float-label mb-4">
+					{{form_row(formProduit.categorie)}}
+				</label>
+				
+				
+			
+				<div class="d-flex justify-content-start align-items-center">
+					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
+				</div>
+			
+			{{ form_end(formProduit) }}
+         
+		</main>
+		{% include "includes/footer.html.twig" %}
+	</body>
 {% endblock %}

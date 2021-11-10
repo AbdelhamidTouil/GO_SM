@@ -58,6 +58,11 @@ class User implements UserInterface
      */
     private $image;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Departement::class, inversedBy="users")
+     */
+    private $departement;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -185,6 +190,18 @@ class User implements UserInterface
     public function setImage( $image)
     {
         $this->image = $image;
+
+        return $this;
+    }
+
+    public function getDepartement(): ?Departement
+    {
+        return $this->departement;
+    }
+
+    public function setDepartement(?Departement $departement): self
+    {
+        $this->departement = $departement;
 
         return $this;
     }
