@@ -50,6 +50,8 @@ class RegistrationFormType extends AbstractType
             ->add('nom')
             ->add('cin')
             ->add('tel')
+            ->add('sexe')
+            ->add('description')
             ->add('departement', EntityType::class,[
                 'class' => Departement::class,
                 'choice_label' => 'title'

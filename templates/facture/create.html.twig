@@ -10,11 +10,9 @@
 
 
 
-
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit!
+{% block title %}Facture !
 {% endblock %}
 
 {% block body %}
@@ -23,23 +21,21 @@
 		<main>
      
 			   {% if editMode %}
-	        <h1> Modifier categorie</h1>
-	          {% else %}
-			<h1> ajouter categorie</h1>
-              {% endif %}
+	        <h1> Modifier Facture</h1>
+	 {% else %}
+			<h1> ajouter Facture</h1>
+    {% endif %}
 
-			{{ form_start(formCategorie) }}
+			{{ form_start(formFacture) }}
             
+			
 				<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.title)}}
+					{{ form_row(formFacture.title) }}
 				</label>
-                	<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.description)}}
+                <label class="form-group has-float-label mb-4">
+					{{ form_row(formFacture.description) }}
 				</label>
-					<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.image)}}
-				</label>
-
+			
 					 {% if editMode %}
 				<div class="d-flex justify-content-start align-items-center">
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
@@ -49,8 +45,7 @@
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">AJOUTER</button>
 				</div>
 			{% endif %}
-			
-			{{ form_end(formCategorie) }}
+			{{ form_end(formFacture) }}
          
 		</main>
 		{% include "includes/footer.html.twig" %}

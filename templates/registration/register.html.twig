@@ -7,9 +7,11 @@
 	<body id="app-container" class="menu-default show-spinner">
 		{% include "includes/body_dash.html.twig" %}
 		<main>
-     
-			<h1>Register</h1>
-
+      {% if editMode %}
+			<h1>Modifier info</h1>
+{% else %}
+<h1>Ajouter utilisateur</h1>
+{% endif %}
 			{{ form_start(registrationForm) }}
             
 			
@@ -29,6 +31,12 @@
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.tel) }}
 				</label>
+				<label class="form-group has-float-label mb-4">
+					{{ form_row(registrationForm.sexe) }}
+				</label>
+				<label class="form-group has-float-label mb-4">
+					{{ form_row(registrationForm.description) }}
+				</label>
 					<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.departement) }}
 				</label>
@@ -38,10 +46,15 @@
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.agreeTerms) }}
 				</label>
+				 {% if editMode %}
 				<div class="d-flex justify-content-start align-items-center">
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">REGISTER</button>
 				</div>
-			
+			{% else %}
+			<div class="d-flex justify-content-start align-items-center">
+					<button class="btn btn-primary btn-lg btn-shadow" type="submit">AJOUTER</button>
+				</div>
+			{% endif %}
 			{{ form_end(registrationForm) }}
          
 		</main>

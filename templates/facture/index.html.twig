@@ -1,6 +1,6 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}List des depatement!{% endblock %}
+{% block title %}List des factures!{% endblock %}
 
 {% block body %}
 <body id="app-container" class="menu-default show-spinner">
@@ -11,14 +11,14 @@
 
                 <div class="col-12">
                     <div class="mb-2">
-                        <h1>List des depatement</h1>
+                        <h1>List des factures</h1>
                         <div class="top-right-button-container">
-                        <a href="{{path('departement_create')}}">
+                        <a href="{{path('facture_create')}}">
                             <button type="button" class="btn btn-primary btn-lg top-right-button mr-1">AJOUTER NOUVEAU</button>
                         </a>
                     
                         </div>
-                        
+
                     </div>
 
                     <div class="mb-2">
@@ -29,20 +29,14 @@
                         </a>
                         <div class="collapse dont-collapse-sm" id="displayOptions">
                             <span class="mr-3 mb-2 d-inline-block float-md-left">
-                                <a href="#" class="mr-2 view-icon active">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 19 19">
-                                        <path class="view-icon-svg" d="M17.5,3H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
-                                        <path class="view-icon-svg" d="M17.5,10H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
-                                        <path class="view-icon-svg" d="M17.5,17H.5a.5.5,0,0,1,0-1h17a.5.5,0,0,1,0,1Z" />
-                                    </svg>
-                                </a>
-                      
-
+                             
+                
+                       
                             </span>
                             <div class="d-block d-md-inline-block">
-                               
-                                <div class="search-sm  d-inline-block float-md-left mr-1 mb-1 align-top">
-                                    <input class="form-control datepicker" placeholder="Rechercher par nom">
+                             
+                                <div class="search-sm d-inline-block float-md-left mr-1 mb-1 align-top">
+                                    <input class="form-control " placeholder="Rechercher">
                                 </div>
                             </div>
                          
@@ -52,7 +46,7 @@
                 </div>
             </div>
 <!-- start list -->
-{% for departement in departement %}
+{% for facture in facture %}
     
 
             <div class="row">
@@ -62,21 +56,24 @@
                             <div
                                 class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
                                 <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
-                                    {{departement.title}}
+                                    {{facture.title}}
+                                </a>
+                                <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
+                                    {{facture.description}}
                                 </a>
                                
                                
                                 <div class="w-15 w-xs-100">
-                                    <a href="{{url('departement_show',{id:departement.id})}}">
+                                    <a href="{{url('facture_show',{id:facture.id})}}">
                                     <span class="badge badge-pill badge-secondary">Show</span>
                                     </a>
                                 </div>
                                  <div class="w-15 w-xs-100">
-                                 <a href="{{url('departement_edit',{id:departement.id})}}">
+                                 <a href="{{url('facture_edit',{id:facture.id})}}">
                                     <span class="badge badge-pill badge-secondary">Edit</span>
                                     </a>
                                 </div>
-                                <a href="{{url('departement_delete',{id:departement.id})}}">
+                                <a href="{{url('facture_delete',{id:facture.id})}}">
                                  <div class="w-15 w-xs-100">
                                     <span class="badge badge-pill badge-secondary">Delete</span>
                                     </a>

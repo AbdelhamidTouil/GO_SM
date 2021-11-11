@@ -15,7 +15,7 @@ class RegistrationController extends AbstractController
 {
     /**
      * @Route("/register", name="app_register")
-     * @Route("/register/{id}/edit", name="user_edit")
+     * @Route("/register{id}edit", name="user_edit")
      */
     public function register( User $user = null,Request $request, UserPasswordEncoderInterface $userPasswordEncoderInterface): Response
     {
@@ -25,7 +25,6 @@ class RegistrationController extends AbstractController
         
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
-
         if ($form->isSubmitted() && $form->isValid()) {
             $file = $user->getImage();
             $fileName = md5(uniqid()).'.'.$file->guessExtension();
@@ -56,7 +55,7 @@ class RegistrationController extends AbstractController
             return $this->redirectToRoute('app_login');
         }
 
-        return $this->render('registration/register.html.twig', [
+           return $this->render('registration/register.html.twig', [
             'registrationForm' => $form->createView(),
             'editMode' => $user->getId() !== null
         ]);

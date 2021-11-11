@@ -46,31 +46,7 @@
                     </div>
                 </div>
 
-                <div class="position-relative d-none d-sm-inline-block">
-                    <button class="header-icon btn btn-empty" type="button" id="iconMenuButton" data-toggle="dropdown"
-                        aria-haspopup="true" aria-expanded="false">
-                        <i class="simple-icon-grid"></i>
-                    </button>
-                    <div class="dropdown-menu dropdown-menu-right mt-3  position-absolute" id="iconMenuDropdown">
-                     
-
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-male-female d-block"></i>
-                            <span>Users</span>
-                        </a>
-
-                        
-
-                        <a href="#" class="icon-menu-item">
-                            <i class="iconsminds-bar-chart-4 d-block"></i>
-                            <span>Profits</span>
-                        </a>
-
-                        
-
-
-                    </div>
-                </div>
+             
 
                 <div class="position-relative d-inline-block">
                     <button class="header-icon btn btn-empty" type="button" id="notificationButton"
@@ -166,7 +142,7 @@
                     <li class="active">
                         <a href="#dashboard">
                             <i class="iconsminds-shop-4"></i>
-                            <span>Users</span>
+                            <span>Utilisateurs</span>
                         </a>
                     </li>
                     <li>
@@ -176,12 +152,12 @@
                     </li>
                     <li>
                         <a href="#applications">
-                            <i class="iconsminds-air-balloon-1"></i> Categorie
+                            <i class="iconsminds-air-balloon-1"></i> Categories
                         </a>
                     </li>
                     <li>
                         <a href="#ui">
-                            <i class="iconsminds-pantone"></i> Produit
+                            <i class="iconsminds-pantone"></i> Produits
                         </a>
                     </li>
                     <li>
@@ -190,13 +166,13 @@
                         </a>
                     </li>
                     <li>
-                        <a href="Blank.Page.html">
-                            <i class="iconsminds-bucket"></i> Facture
+                        <a href="#facture">
+                            <i class="iconsminds-bucket"></i> Factures
                         </a>
                     </li>
                     <li>
-                        <a href="https://dore-jquery-docs.coloredstrategies.com" target="_blank">
-                            <i class="iconsminds-library"></i> Docs
+                        <a href="#client">
+                            <i class="iconsminds-library"></i> Clients
                         </a>
                     </li>
                 </ul>
@@ -210,7 +186,7 @@
                 <ul class="list-unstyled" data-link="dashboard">
                     <li class="active">
                         <a href="{{path('user_list')}}">
-                            <i class="simple-icon-rocket"></i> <span class="d-inline-block">List des utilisateur</span>
+                            <i class="simple-icon-rocket"></i> <span class="d-inline-block">List des utilisateurs</span>
                         </a>
                     </li>
                    
@@ -291,87 +267,73 @@
                     <li>
                         <a href="#" data-toggle="collapse" data-target="#collapseMenuTypes" aria-expanded="true"
                             aria-controls="collapseMenuTypes" class="rotate-arrow-icon">
-                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Menu Types</span>
+                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Stock</span>
                         </a>
                         <div id="collapseMenuTypes" class="collapse show" data-parent="#menuTypes">
                             <ul class="list-unstyled inner-level-menu">
                                 <li>
                                     <a href="Menu.Default.html">
                                         <i class="simple-icon-control-pause"></i> <span
-                                            class="d-inline-block">Default</span>
+                                            class="d-inline-block">List de Stock</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="Menu.Subhidden.html">
-                                        <i class="simple-icon-arrow-left mi-subhidden"></i> <span
-                                            class="d-inline-block">Subhidden</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="Menu.Hidden.html">
-                                        <i class="simple-icon-control-start mi-hidden"></i> <span
-                                            class="d-inline-block">Hidden</span>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="Menu.Mainhidden.html">
-                                        <i class="simple-icon-control-rewind mi-hidden"></i> <span
-                                            class="d-inline-block">Mainhidden</span>
-                                    </a>
-                                </li>
+                         
+                             
+                           
                             </ul>
                         </div>
                     </li>
+                 
+                    
+                </ul>
+
+
+                  <ul class="list-unstyled" data-link="facture" id="menuTypes">
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#collapseMenuLevel" aria-expanded="true"
-                            aria-controls="collapseMenuLevel" class="rotate-arrow-icon collapsed">
-                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Menu Levels</span>
+                        <a href="#" data-toggle="collapse" data-target="#collapseMenuTypes" aria-expanded="true"
+                            aria-controls="collapseMenuTypes" class="rotate-arrow-icon">
+                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Facture</span>
                         </a>
-                        <div id="collapseMenuLevel" class="collapse" data-parent="#menuTypes">
+                        <div id="collapseMenuTypes" class="collapse show" data-parent="#menuTypes">
                             <ul class="list-unstyled inner-level-menu">
                                 <li>
-                                    <a href="#">
-                                        <i class="simple-icon-layers"></i> <span class="d-inline-block">Sub
-                                            Level</span>
+                                    <a href="{{path('list_facture')}}">
+                                        <i class="simple-icon-control-pause"></i> <span
+                                            class="d-inline-block">List des Factures</span>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href="#" data-toggle="collapse" data-target="#collapseMenuLevel2"
-                                        aria-expanded="true" aria-controls="collapseMenuLevel2"
-                                        class="rotate-arrow-icon collapsed">
-                                        <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Another
-                                            Level</span>
-                                    </a>
-                                    <div id="collapseMenuLevel2" class="collapse">
-                                        <ul class="list-unstyled inner-level-menu">
-                                            <li>
-                                                <a href="#">
-                                                    <i class="simple-icon-layers"></i> <span class="d-inline-block">Sub
-                                                        Level</span>
-                                                </a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </li>
+                         
+                             
+                           
                             </ul>
                         </div>
                     </li>
+                 
+                    
+                </ul>
+
+                 <ul class="list-unstyled" data-link="client" id="menuTypes">
                     <li>
-                        <a href="#" data-toggle="collapse" data-target="#collapseMenuDetached" aria-expanded="true"
-                            aria-controls="collapseMenuDetached" class="rotate-arrow-icon collapsed">
-                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">Detached</span>
+                        <a href="#" data-toggle="collapse" data-target="#collapseMenuTypes" aria-expanded="true"
+                            aria-controls="collapseMenuTypes" class="rotate-arrow-icon">
+                            <i class="simple-icon-arrow-down"></i> <span class="d-inline-block">client</span>
                         </a>
-                        <div id="collapseMenuDetached" class="collapse">
+                        <div id="collapseMenuTypes" class="collapse show" data-parent="#menuTypes">
                             <ul class="list-unstyled inner-level-menu">
                                 <li>
-                                    <a href="#">
-                                        <i class="simple-icon-layers"></i> <span class="d-inline-block">Sub
-                                            Level</span>
+                                    <a href="{{path('list_client')}}">
+                                        <i class="simple-icon-control-pause"></i> <span
+                                            class="d-inline-block">List des clients</span>
                                     </a>
                                 </li>
+                         
+                             
+                           
                             </ul>
                         </div>
                     </li>
+                 
+                    
                 </ul>
 
             </div>

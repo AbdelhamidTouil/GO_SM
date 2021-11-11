@@ -1,45 +1,34 @@
 
-
-
-
-
-
-
-
-
-
-
-
-
-
 {% extends 'base.html.twig' %}
 
-{% block title %}Produit!
+{% block title %}Client!
 {% endblock %}
 
 {% block body %}
+
 	<body id="app-container" class="menu-default show-spinner">
 		{% include "includes/body_dash.html.twig" %}
 		<main>
      
 			   {% if editMode %}
-	        <h1> Modifier categorie</h1>
-	          {% else %}
-			<h1> ajouter categorie</h1>
-              {% endif %}
+	        <h1> Modifier Client</h1>
+	         {% else %}
+		 	<h1> ajouter Client</h1>
+             {% endif %}
 
-			{{ form_start(formCategorie) }}
+			{{ form_start(formClient) }}
             
+			
 				<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.title)}}
+					{{ form_row(formClient.nom) }}
 				</label>
-                	<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.description)}}
+				<label class="form-group has-float-label mb-4">
+					{{ form_row(formClient.prenom) }}
 				</label>
-					<label class="form-group has-float-label mb-4">
-					{{form_row(formCategorie.image)}}
+				<label class="form-group has-float-label mb-4">
+					{{ form_row(formClient.tel) }}
 				</label>
-
+			
 					 {% if editMode %}
 				<div class="d-flex justify-content-start align-items-center">
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
@@ -50,7 +39,7 @@
 				</div>
 			{% endif %}
 			
-			{{ form_end(formCategorie) }}
+			{{ form_end(formClient) }}
          
 		</main>
 		{% include "includes/footer.html.twig" %}

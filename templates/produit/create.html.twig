@@ -11,9 +11,11 @@
 	<body id="app-container" class="menu-default show-spinner">
 		{% include "includes/body_dash.html.twig" %}
 		<main>
-     
-			<h1>ajouter Produit</h1>
-
+     {%  if editMode %}
+			<h1>Modifier Produit</h1>
+{% else %}
+<h1> Ajouter Produit </h1>
+{% endif %}
 			{{ form_start(formProduit) }}
             
 			
@@ -36,9 +38,15 @@
 				
 				
 			
+					 {% if editMode %}
 				<div class="d-flex justify-content-start align-items-center">
 					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
 				</div>
+			{% else %}
+			<div class="d-flex justify-content-start align-items-center">
+					<button class="btn btn-primary btn-lg btn-shadow" type="submit">AJOUTER</button>
+				</div>
+			{% endif %}
 			
 			{{ form_end(formProduit) }}
          

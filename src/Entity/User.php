@@ -63,6 +63,18 @@ class User implements UserInterface
      */
     private $departement;
 
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
+    /**
+     * @ORM\Column(type="string", length=50, nullable=true)
+     */
+    private $sexe;
+
+   
+
     public function getId(): ?int
     {
         return $this->id;
@@ -205,4 +217,32 @@ class User implements UserInterface
 
         return $this;
     }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+    public function getSexe(): ?string
+    {
+        return $this->sexe;
+    }
+
+    public function setSexe(?string $sexe): self
+    {
+        $this->sexe = $sexe;
+
+        return $this;
+    }
+
+   
+
+  
 }
