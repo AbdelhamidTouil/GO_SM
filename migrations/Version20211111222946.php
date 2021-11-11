@@ -10,7 +10,7 @@ use Doctrine\Migrations\AbstractMigration;
 /**
  * Auto-generated Migration: Please modify to your needs!
  */
-final class Version20211110190433 extends AbstractMigration
+final class Version20211111222946 extends AbstractMigration
 {
     public function getDescription(): string
     {
@@ -21,11 +21,17 @@ final class Version20211110190433 extends AbstractMigration
     {
         // this up() migration is auto-generated, please modify it to your needs
         $this->addSql('CREATE TABLE client (id INT AUTO_INCREMENT NOT NULL, nom VARCHAR(50) NOT NULL, prenom VARCHAR(50) NOT NULL, tel VARCHAR(50) NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('CREATE TABLE facture (id INT AUTO_INCREMENT NOT NULL, title VARCHAR(50) NOT NULL, description LONGTEXT NOT NULL, PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+        $this->addSql('ALTER TABLE categorie ADD image VARCHAR(255) NOT NULL');
+        $this->addSql('ALTER TABLE user ADD description LONGTEXT DEFAULT NULL, ADD sexe VARCHAR(50) DEFAULT NULL');
     }
 
     public function down(Schema $schema): void
     {
         // this down() migration is auto-generated, please modify it to your needs
         $this->addSql('DROP TABLE client');
+        $this->addSql('DROP TABLE facture');
+        $this->addSql('ALTER TABLE categorie DROP image');
+        $this->addSql('ALTER TABLE user DROP description, DROP sexe');
     }
 }

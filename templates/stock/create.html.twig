@@ -1,0 +1,18 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Stock{% endblock %}
+
+{% block body %}
+
+{% include "includes/body_dash.html.twig" %}
+<main>
+
+    <h1>Ajouter un stock</h1>
+{{form_start(formStock)}}
+
+{{form_end(formStock)}}
+
+</main>
+{% include "includes/footer.html.twig" %}
+
+{% endblock %}
