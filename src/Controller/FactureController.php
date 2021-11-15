@@ -3,8 +3,9 @@
 namespace App\Controller;
 use App\Entity\Facture;
 use App\Form\FactureType;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\FactureRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,10 +16,14 @@ class FactureController extends AbstractController
     /**
      * @Route("/facture", name="list_facture")
      */
-    public function index(FactureRepository $repo)
+    public function index( Request $request, PaginatorInterface $paginator,  FactureRepository $repo)
     {
-        $facture =$repo->findAll();
-       
+        $facture = $repo->findAll();
+        $facture = $paginator->paginate(
+        $facture,
+        $request->query->getInt('page',1),
+        3
+        );
         return $this->render('facture/index.html.twig', [
             'controller_name' => 'FactureController',
             'facture' =>$facture

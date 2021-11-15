@@ -6,11 +6,12 @@ use App\Entity\Categorie;
 use App\Form\CategorieType;
 use App\Repository\CategorieRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
-use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\File\Exception\FileException;
 use Symfony\Component\Security\Core\Encoder\UserPasswordEncoderInterface;
 
 class CategorieController extends AbstractController
@@ -19,12 +20,16 @@ class CategorieController extends AbstractController
       * displaying list categories
      * @Route("/categorie", name="list_categorie")
      */
-    public function index(CategorieRepository $repo): Response
+    public function index( Request $request, PaginatorInterface $paginator,  CategorieRepository $repo)
     {
         $categorie = $repo->findAll();
+        $categorie = $paginator->paginate(
+        $categorie,
+        $request->query->getInt('page',1),
+        3
+        );
         return $this->render('categorie/index.html.twig', [
-            'controller_name' => 'CategorieController',
-            'categorie' => $categorie
+            'categorie' =>$categorie
         ]);
     }
    

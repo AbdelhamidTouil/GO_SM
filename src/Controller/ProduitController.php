@@ -6,6 +6,7 @@ use App\Entity\Produit;
 use App\Form\ProduitType;
 use App\Repository\ProduitRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,9 +18,14 @@ class ProduitController extends AbstractController
       * dispalaying list products
      * @Route("/produit", name="list_produit")
      */
-    public function index(ProduitRepository $repo)
+    public function index(Request $request, PaginatorInterface $paginator,ProduitRepository $repo)
     {
         $produit = $repo->findAll();
+        $produit = $paginator->paginate(
+            $produit,
+            $request->query->getInt('page',1),
+            3
+            );
         return $this->render('produit/index.html.twig', [
             'controller_name' => 'ProduitController',
             'produit' => $produit
@@ -29,7 +35,7 @@ class ProduitController extends AbstractController
      /**
       * create and update product
      * @Route("produitcreate", name="produit_create")
-     * @Route("/produit{id}/edit", name="produit_edit")
+     * @Route("/produit{id}edit", name="produit_edit")
      */
     public function form( Produit $produit = null, Request $request, EntityManagerInterface $entityManager)
     {

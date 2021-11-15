@@ -3,8 +3,9 @@
 namespace App\Controller;
 use App\Entity\Client;
 use App\Form\ClientType;
-use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\ClientRepository;
+use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -17,12 +18,15 @@ class ClientController extends AbstractController
     /**
      * @Route("/client", name="list_client")
      */
-    public function index(ClientRepository $repo)
+    public function index( Request $request, PaginatorInterface $paginator,  ClientRepository $repo)
     {
-        $client =$repo->findAll();
-       
+        $client = $repo->findAll();
+        $client = $paginator->paginate(
+        $client,
+        $request->query->getInt('page',1),
+        3
+        );
         return $this->render('client/index.html.twig', [
-            'controller_name' => 'ClientController',
             'client' =>$client
         ]);
     }

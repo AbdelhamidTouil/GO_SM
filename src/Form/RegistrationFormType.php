@@ -6,15 +6,17 @@ use App\Entity\User;
 use App\Entity\Departement;
 use App\Form\DepartementType;
 use Symfony\Component\Form\AbstractType;
-use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Validator\Constraints\IsTrue;
 use Symfony\Component\Validator\Constraints\Length;
 use Symfony\Component\Validator\Constraints\NotBlank;
+use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\FileType;
+use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
+use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 
 class RegistrationFormType extends AbstractType
 {
@@ -48,9 +50,22 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('nom')
-            ->add('cin')
+            ->add('prenom')
             ->add('tel')
+
+           /* ->add('roles',ChoiceType::class,[
+                'choices' => [
+                    'Utilisateur' => 'ROLE_USER',
+                    'Employer' => 'ROLE_EMPLOYER',
+                    'Administrateur' => 'ROLE_ADMIN'
+                ],
+                'expanded' => true,
+                'multiple'=> true,
+                'label' => 'Roles'
+            ])*/
             ->add('sexe')
+            ->add('cin')
+            ->add('date',DateType::class)
             ->add('description')
             ->add('departement', EntityType::class,[
                 'class' => Departement::class,

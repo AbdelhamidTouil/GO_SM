@@ -48,18 +48,21 @@
                 </div>
             </div>
 <!-- start list -->
-{% for client in client %}
     
 
-            <div class="row">
-                <div class="col-12 list" data-check-all="checkAll">
+{% for client in client %}
+
+            <div class="row" >
+           
+                <div class="col-12 list">
                     <div class="card d-flex flex-row mb-3">
                         <div class="d-flex flex-grow-1 min-width-zero">
                             <div
                                 class="card-body align-self-center d-flex flex-column flex-md-row justify-content-between min-width-zero align-items-md-center">
-                                <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
-                                    {{client.nom}}
+                                <a class="list-item-heading mb-0 truncate w-40 w-xs-100"  href="">
+                                    {{client.nom}} 
                                 </a>
+                                
                                  <a class="list-item-heading mb-0 truncate w-40 w-xs-100" href="">
                                     {{client.prenom}}
                                 </a>
@@ -95,39 +98,13 @@
         {% endfor %}
 <!-- end list -->
 
-                    <nav class="mt-4 mb-3">
-                        <ul class="pagination justify-content-center mb-0">
-                            <li class="page-item ">
-                                <a class="page-link first" href="#">
-                                    <i class="simple-icon-control-start"></i>
-                                </a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link prev" href="#">
-                                    <i class="simple-icon-arrow-left"></i>
-                                </a>
-                            </li>
-                            <li class="page-item active">
-                                <a class="page-link" href="#">1</a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link" href="#">2</a>
-                            </li>
-                            <li class="page-item">
-                                <a class="page-link" href="#">3</a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link next" href="#" aria-label="Next">
-                                    <i class="simple-icon-arrow-right"></i>
-                                </a>
-                            </li>
-                            <li class="page-item ">
-                                <a class="page-link last" href="#">
-                                    <i class="simple-icon-control-end"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </nav>
+                     <!-- start pagination -->
+						 <nav class="mt-4 mb-3">
+							<ul class="pagination justify-content-center mb-0">
+							{{knp_pagination_render(client)}}
+							</ul>
+                        </nav>
+					  <!-- end pagination -->
                 </div>
             </div>
         </div>

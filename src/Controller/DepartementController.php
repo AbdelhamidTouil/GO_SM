@@ -5,6 +5,7 @@ use App\Entity\Departement;
 use App\Form\DepartementType;
 use Doctrine\ORM\EntityManagerInterface;
 use App\Repository\DepartementRepository;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -15,9 +16,14 @@ class DepartementController extends AbstractController
     /**
      * @Route("/departement", name="list_departement")
      */
-    public function index(DepartementRepository $repo)
+    public function index(Request $request, PaginatorInterface $paginator,DepartementRepository $repo)
     {
         $departement =$repo->findAll();
+        $departement = $paginator->paginate(
+            $departement,
+            $request->query->getInt('page',1),
+            3
+            );
        
         return $this->render('departement/index.html.twig', [
             'controller_name' => 'DepartementController',

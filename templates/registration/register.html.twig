@@ -26,11 +26,15 @@
 					{{ form_row(registrationForm.nom) }}
 				</label>
 				<label class="form-group has-float-label mb-4">
+					{{ form_row(registrationForm.prenom) }}
+				</label>
+					<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.cin) }}
 				</label>
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.tel) }}
 				</label>
+				
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.sexe) }}
 				</label>
@@ -38,23 +42,29 @@
 					{{ form_row(registrationForm.description) }}
 				</label>
 					<label class="form-group has-float-label mb-4">
+					{{ form_row(registrationForm.date) }}
+				</label>
+					<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.departement) }}
 				</label>
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.image) }}
 				</label>
+
+			
 				<label class="form-group has-float-label mb-4">
 					{{ form_row(registrationForm.agreeTerms) }}
 				</label>
+				
 				 {% if editMode %}
 				<div class="d-flex justify-content-start align-items-center">
-					<button class="btn btn-primary btn-lg btn-shadow" type="submit">REGISTER</button>
+					<button class="btn btn-primary btn-lg btn-shadow" type="submit">Enregistrer</button>
 				</div>
-			{% else %}
-			<div class="d-flex justify-content-start align-items-center">
-					<button class="btn btn-primary btn-lg btn-shadow" type="submit">AJOUTER</button>
-				</div>
-			{% endif %}
+				{% else %}
+				<div class="d-flex justify-content-start align-items-center">
+						<button class="btn btn-primary btn-lg btn-shadow" type="submit">AJOUTER</button>
+					</div>
+				{% endif %}
 			{{ form_end(registrationForm) }}
          
 		</main>

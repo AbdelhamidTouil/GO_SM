@@ -5,10 +5,11 @@ use App\Entity\Stock;
 use App\Form\StockType;
 use App\Repository\StockRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 class StockController extends AbstractController
 {
@@ -16,12 +17,17 @@ class StockController extends AbstractController
      * dispalaying list sock
      * @Route("/stock", name="list_stock")
      */
-    public function index( StockRepository $repo): Response
+    public function index( Request $request, PaginatorInterface $paginator,  StockRepository $repo)
     {
         $stock = $repo->findAll();
+        $stock = $paginator->paginate(
+        $stock,
+        $request->query->getInt('page',1),
+        3
+        );
         return $this->render('stock/index.html.twig', [
             'controller_name' => 'StockController',
-            'stock' => $stock,
+            'stock' =>$stock
         ]);
     }
      /**

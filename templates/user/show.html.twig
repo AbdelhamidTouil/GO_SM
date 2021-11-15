@@ -5,119 +5,88 @@
 {% block body %}
 <body id="app-container" class="menu-default show-spinner">
 {% include "includes/body_dash.html.twig" %}
-<main>
-
+<div class="space50"></div>
+ <main>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12">
-
                     <div class="mb-2">
-                        <h1>{{user.nom}}</h1>
+                     
                         <div class="text-zero top-right-button-container">
                             <a href="{{url('user_edit',{id:user.id})}}" class="btn btn-lg btn-outline-primary ">
                                 Modifier
                             </a>
                           
                         </div>
+                    <div class="mb-2">
+                        <h1>{{user.nom}}{{user.prenom}}</h1>
+                      
+                    </div>
+                    
+                       <div class="mb-2">
+                       
+                        <a href="img/profiles/1.jpg" class="lightbox">
+                                        <img alt="{{user.nom}}" src="uploads\brochures\{{user.image}}"
+                                            class="img-thumbnail card-img social-profile-img">
+                                    </a>
+                      
+                    </div>
+                    </div>
+                     
                   
                     </div>
+                  
 
+                    <div class="separator mb-5"></div>
+                </div>
+            </div>
 
-                    <ul class="nav nav-tabs separator-tabs ml-0 mb-5" role="tablist">
-                        <li class="nav-item">
-                            <a class="nav-link active" id="first-tab" data-toggle="tab" href="#first" role="tab"
-                                aria-controls="first" aria-selected="true">PROFILE</a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link " id="second-tab" data-toggle="tab" href="#second" role="tab"
-                                aria-controls="second" aria-selected="false">Image</a>
-                        </li>
-                    </ul>
-                    <div class="tab-content">
-                        <div class="tab-pane show active" id="first" role="tabpanel" aria-labelledby="first-tab">
-                            <div class="row">
-                                <div class="col-12 col-lg-5 col-xl-4 col-left">
-                                    <div class="card mb-4">
-                                        <div class="position-absolute card-top-buttons">
-                                            <button class="btn btn-outline-white icon-button ">
-                                                <i class="simple-icon-pencil"></i>
-                                            </button>
-                                        </div>
-                                        <img src="uploads\brochures\{{user.image}}" alt="{{user.nom}}" class="card-img-top" />
-
-                                        <div class="card-body">
-                                            <p class="text-muted text-small mb-2">About</p>
-                                            <p class="mb-3">
-                                                {{user.description}}
-                                            </p>
-
-                                            <p class="text-muted text-small mb-2">Coordonnées</p>
-                                            <p class="mb-3">{{user.email}}</p>
-                                            <p class="mb-3">{{user.tel}}</p>
-                                            <p class="text-muted text-small mb-2">info géneral</p>
-                                            <p class="mb-3">{{user.cin}}</p>
-                                            <p class="mb-3">{{user.sexe}}</p>
-                                            <p class="mb-3">08-06-1999</p>
-                                            <p class="text-muted text-small mb-2">Roles</p>
-                                            <p class="mb-3">Admin</p>
-                                            <p class="text-muted text-small mb-2">Situation amoureuse</p>
-                                            <p class="mb-3">Célibataire</p>
-                                           
-                                          
-                                            <p class="text-muted text-small mb-2">Contact</p>
-                                            <div class="social-icons">
-                                                <ul class="list-unstyled list-inline">
-                                                    <li class="list-inline-item">
-                                                        <a href="#"><i class="simple-icon-social-facebook"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#"><i class="simple-icon-social-twitter"></i></a>
-                                                    </li>
-                                                    <li class="list-inline-item">
-                                                        <a href="#"><i class="simple-icon-social-instagram"></i></a>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                    </div>
-                                 
-
-                                 
-                                </div>
-                           
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Coordonnées</p>
+                                    <p class="mb-1 text-muted text-small">Mobile</p>
+                                    <p class="mb-4 text-small">{{user.tel}}</p>
+                                    <p class="mb-1 text-muted text-small">Email</p>
+                                    <p class="mb-4 text-small">{{user.email}}</p>
+                                </a>
+                                <div class="separator"></div>
                             </div>
-                        </div>
-
-                        <div class="tab-pane fade" id="second" role="tabpanel" aria-labelledby="second-tab">
-                            <div class="row">
-       
-                                <div class="col-12 col-md-6 col-lg-4">
-                                    <div class="card d-flex flex-row mb-4">
-                                        <a class="d-flex" href="#">
-                                            <img alt="Profile" src="img/profiles/l-7.jpg"
-                                                class="img-thumbnail border-0 rounded-circle m-4 list-thumbnail align-self-center">
-                                        </a>
-                                        <div class=" d-flex flex-grow-1 min-width-zero">
-                                            <div
-                                                class="card-body pl-0 align-self-center d-flex flex-column flex-lg-row justify-content-between min-width-zero">
-                                                <div class="min-width-zero">
-
-                                                    <button type="button"
-                                                        class="btn btn-xs btn-outline-primary ">View</button>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Info génerales</p>
+                                    <p class="mb-1 text-muted text-small">Nom complete</p>
+                                    <p class="mb-4 text-small">{{user.nom}}{{user.prenom}}</p>
+                                    <p class="mb-1 text-muted text-small">Cin</p>
+                                    <p class="mb-4 text-small">{{user.cin}}</p>
+                                    <p class="mb-1 text-muted text-small">Date naissance</p>
+                                    <p class="mb-4 text-small">date</p>
+                                   
+                                     <p class="mb-1 text-muted text-small">Departement</p>
+                                    <p class="mb-4 text-small">{{user.departement.title}}</p>
+                                </a>
+                                <div class="separator"></div>
                             </div>
+
+                            <div class="mb-4">
+                                <a href="#">
+                                    <p class="list-item-heading mb-1 color-theme-1">Situation amoureuse</p>
+                                    <p class="mb-1 text-muted text-small">Sexe</p>
+                                    <p class="mb-4 text-small">{{user.sexe}}</p>
+                                </a>
+                                <div class="separator"></div>
+                            </div>
+                         
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
     </main>
-
 {% include "includes/footer.html.twig" %}
 </body>
 {% endblock %}

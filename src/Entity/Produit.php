@@ -44,6 +44,11 @@ class Produit
      */
     private $categorie;
 
+    /**
+     * @ORM\Column(type="float")
+     */
+    private $prix;
+
   
 
     public function getId(): ?int
@@ -107,6 +112,18 @@ class Produit
     public function setCategorie(?Categorie $categorie): self
     {
         $this->categorie = $categorie;
+
+        return $this;
+    }
+
+    public function getPrix(): ?float
+    {
+        return $this->prix;
+    }
+
+    public function setPrix(float $prix): self
+    {
+        $this->prix = $prix;
 
         return $this;
     }

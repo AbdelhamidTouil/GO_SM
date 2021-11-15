@@ -5,6 +5,7 @@ use App\Entity\User;
 use App\Form\UserType;
 use App\Repository\UserRepository;
 use Doctrine\ORM\EntityManagerInterface;
+use Knp\Component\Pager\PaginatorInterface;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -16,9 +17,14 @@ class UserController extends AbstractController
      * displaying list users
      * @Route("/user", name="user_list")
      */
-    public function index(UserRepository $repo)
+    public function index( Request $request, PaginatorInterface $paginator,  UserRepository $repo)
     {
         $user = $repo->findAll();
+        $user = $paginator->paginate(
+        $user,
+        $request->query->getInt('page',1),
+        2
+        );
         return $this->render('user/index.html.twig', [
             'controller_name' => 'UserController',
             'user' =>$user
@@ -47,6 +53,7 @@ class UserController extends AbstractController
     public function show_user(UserRepository $repo,$id): Response
     {
         $user = $repo->find($id);
+       
         return $this->render('user/show.html.twig', [
             "user" => $user
 
